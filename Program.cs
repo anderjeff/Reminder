@@ -16,6 +16,7 @@ public class Program
     public async static Task Main(string[] args)
     {
         var builder = Host.CreateApplicationBuilder(args);
+        builder.Configuration.AddEnvironmentVariables();
         builder.Configuration.AddUserSecrets<Program>();
 
         builder.Services.Configure<List<Schedule>>(builder.Configuration.GetSection("Schedules"));
@@ -35,22 +36,24 @@ public class Program
 
         var app = builder.Build();
         var logger = app.Services.GetRequiredService<ILogger<Program>>();
+
+        logger.LogInformation("Reminder service starting...");
+
         var scheduler = app.Services.GetRequiredService<Scheduler>();
 
         try
         {
             while (true)
             {
+                logger.LogInformation("Checking schedules...");
                 await scheduler.CheckSchedulesAsync();
-                await Task.Delay(1000);
+                await Task.Delay(5000);
             }
         }
         catch (Exception ex)
         {
             logger.LogError(ex, "An error occurred while checking the schedule. Message: {Message}", ex.Message);
-            
-            // restart the application
-            await Main(args);
+            throw; // note docker host will restart automatically.
         }        
     }
 }
