@@ -30,13 +30,20 @@ namespace Reminder.Services
             message.Body = new BodyBuilder
             {
                 HtmlBody = body
-            }.ToMessageBody();
+            }.ToMessageBody();           
 
-            using var client = new SmtpClient();
-            await client.ConnectAsync("smtp.gmail.com", 587);
-            await client.AuthenticateAsync("anderson.jjames@gmail.com", _config["gmail:smtp-password"]);
-            await client.SendAsync(message);
-            await client.DisconnectAsync(true);
+            if (string.IsNullOrEmpty(_config["gmail:smtp-password"]))
+            {
+                _logger.LogWarning("unable to get smtp password from environment.");
+            }
+            else 
+            {
+                using var client = new SmtpClient();
+                await client.ConnectAsync("smtp.gmail.com", 587);
+                await client.AuthenticateAsync("anderson.jjames@gmail.com", _config["gmail:smtp-password"]);
+                await client.SendAsync(message);
+                await client.DisconnectAsync(true);
+            }            
         }
     }
 }

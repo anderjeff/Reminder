@@ -40,6 +40,9 @@ namespace Reminder.Services
                 var cron = CronExpression.Parse(schedule.Cron);
                 var next = cron.GetNextOccurrence(_lastCheckTime);
 
+                _logger.LogInformation("Next scheduled occurrence is {next:g}", next);
+                _logger.LogInformation("Last check time is {last:g}", _lastCheckTime);
+
                 if (next.HasValue)
                 {
                     // execute the action if the next occurrence is within the last check time and now

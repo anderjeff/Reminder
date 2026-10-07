@@ -1,4 +1,5 @@
-﻿using Reminder.Interfaces;
+﻿using Microsoft.Extensions.Logging;
+using Reminder.Interfaces;
 using Reminder.Models;
 using System.Text;
 
@@ -7,10 +8,12 @@ namespace Reminder.Services
     public class GooglePhotosScheduleAction : ScheduleAction
     {
         private readonly IGooglePhotosReminderDataAccess _dataAccess;
+        private readonly ILogger _logger;
         
-        public GooglePhotosScheduleAction(INotificationService emailService, IGooglePhotosReminderDataAccess dataAccess) : base(emailService)
+        public GooglePhotosScheduleAction(INotificationService emailService, IGooglePhotosReminderDataAccess dataAccess, ILogger<GooglePhotosScheduleAction> logger) : base(emailService)
         {
             _dataAccess = dataAccess;
+            _logger = logger;
         }
 
         public async override Task ExecuteAsync(Schedule schedule)
@@ -82,8 +85,10 @@ namespace Reminder.Services
                     </body>
                     </html>";
 
+                _logger.LogInformation("Sending email to {recipient}", recipient.Email);
                 await _emailService.SendAsync(recipient, schedule?.Name ?? "Google Photos Reminder Default", body);
 
+                _logger.LogInformation("Saving reminder to datbase");
                 _dataAccess.SaveReminder(sendTo, body, startDate, startDate.AddDays(7));
             }
         }
