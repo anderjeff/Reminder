@@ -7,6 +7,7 @@ using Reminder.Interfaces;
 using Reminder.Services;
 using Reminder.Data;
 using Reminder.Factories;
+using Microsoft.Extensions.Configuration;
 
 namespace Reminder;
 
@@ -15,6 +16,8 @@ public class Program
     public async static Task Main(string[] args)
     {
         var builder = Host.CreateApplicationBuilder(args);
+        builder.Configuration.AddUserSecrets<Program>();
+
         builder.Services.Configure<List<Schedule>>(builder.Configuration.GetSection("Schedules"));
         builder.Services.AddSingleton<Scheduler>();
         builder.Services.AddSingleton<INotificationService, EmailService>();
