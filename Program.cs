@@ -19,7 +19,7 @@ public class Program
         builder.Configuration.AddEnvironmentVariables();
         builder.Configuration.AddUserSecrets<Program>();
 
-        builder.Services.Configure<List<Schedule>>(builder.Configuration.GetSection("Schedules"));
+        builder.Services.Configure<List<Schedule>>(builder.Configuration.GetSection("schedules"));
         builder.Services.AddSingleton<Scheduler>();
         builder.Services.AddSingleton<INotificationService, EmailService>();
         builder.Services.AddSingleton<IGooglePhotosReminderDataAccess, GooglePhotosReminderDataAccess>();
