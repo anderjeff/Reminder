@@ -22,6 +22,8 @@ namespace Reminder.Services
 
         public async Task CheckSchedulesAsync()
         {
+            _logger.LogInformation("Checking schedules for {count} schedules...", _schedules?.Value.Count() ?? -1);
+
             var now = DateTime.UtcNow;
 
             foreach (var schedule in _schedules.Value)
@@ -56,6 +58,7 @@ namespace Reminder.Services
             }
 
             _lastCheckTime = now;
+            _logger.LogInformation("Set _lastCheckTime to {now:g}", now);
         }
     }
 }
