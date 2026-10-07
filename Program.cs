@@ -25,14 +25,19 @@ public class Program
         builder.Services.AddSingleton<IGooglePhotosReminderDataAccess, GooglePhotosReminderDataAccess>();
         builder.Services.AddSingleton<ScheduleActionFactory>();
 
-        builder.Services.AddSerilog(config => 
-            config
-                .MinimumLevel.Information()
-                .WriteTo.Console()
-                .WriteTo.File(
-                    "_logs/log-.txt", 
-                    rollingInterval: RollingInterval.Day,
-                    retainedFileCountLimit: 30));
+        // ensure we are using serilog.
+        builder.Logging.ClearProviders();
+
+        Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Information()
+            .WriteTo.Console()
+            .WriteTo.File(
+                "_logs/log-.txt",
+                rollingInterval: RollingInterval.Day,
+                retainedFileCountLimit: 30)
+            .CreateLogger();
+
+        builder.Services.AddSerilog();
 
         var app = builder.Build();
         var logger = app.Services.GetRequiredService<ILogger<Program>>();
