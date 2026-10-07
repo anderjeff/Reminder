@@ -1,0 +1,203 @@
+2026-09-25 20:12:01.392 +00:00 [ERR] An error occurred while checking the schedule. Message: SQLite Error 1: 'near ")": syntax error'.
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'near ")": syntax error'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteNonQuery()
+   at Reminder.Data.BaseDataAccess.SeedDatabase() in C:\repos\Reminder\Data\BaseDataAccess.cs:line 37
+   at Reminder.Data.BaseDataAccess..ctor() in C:\repos\Reminder\Data\BaseDataAccess.cs:line 12
+   at Reminder.Data.GooglePhotosReminderDataAccess..ctor() in C:\repos\Reminder\Data\GooglePhotosReminderDataAccess.cs:line 7
+   at InvokeStub_GooglePhotosReminderDataAccess..ctor(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ConstructorInfoEx.GetService(IServiceProvider serviceProvider, Int32 parameterIndex)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Reminder.Factories.ScheduleActionFactory.Create(String typeName) in C:\repos\Reminder\Factories\ScheduleActionFactory.cs:line 28
+   at Reminder.Services.Scheduler.CheckSchedulesAsync() in C:\repos\Reminder\Services\Scheduler.cs:line 48
+   at Reminder.Program.Main(String[] args) in C:\repos\Reminder\Program.cs:line 41
+2026-09-25 20:19:33.888 +00:00 [ERR] An error occurred while checking the schedule. Message: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 586e51a60fabf-49335e9e1dasm2919528fac.13 - gsmtp
+MailKit.Security.AuthenticationException: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 586e51a60fabf-49335e9e1dasm2919528fac.13 - gsmtp
+ ---> MailKit.Net.Smtp.SmtpCommandException: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 586e51a60fabf-49335e9e1dasm2919528fac.13 - gsmtp
+   --- End of inner exception stack trace ---
+   at MailKit.Net.Smtp.SmtpClient.AuthenticateAsync(Encoding encoding, ICredentials credentials, CancellationToken cancellationToken)
+   at Reminder.Services.EmailService.SendAsync(Recipient recipient, String subject, String body)
+   at Reminder.Services.GooglePhotosScheduleAction.ExecuteAsync(Schedule schedule)
+   at Reminder.Services.Scheduler.CheckSchedulesAsync()
+   at Reminder.Program.Main(String[] args)
+2026-09-25 20:20:46.029 +00:00 [ERR] An error occurred while checking the schedule. Message: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 5614622812f47-4dbf3d74e99sm2815236b6e.4 - gsmtp
+MailKit.Security.AuthenticationException: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 5614622812f47-4dbf3d74e99sm2815236b6e.4 - gsmtp
+ ---> MailKit.Net.Smtp.SmtpCommandException: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 5614622812f47-4dbf3d74e99sm2815236b6e.4 - gsmtp
+   --- End of inner exception stack trace ---
+   at MailKit.Net.Smtp.SmtpClient.AuthenticateAsync(Encoding encoding, ICredentials credentials, CancellationToken cancellationToken)
+   at Reminder.Services.EmailService.SendAsync(Recipient recipient, String subject, String body) in C:\repos\Reminder\Services\EmailService.cs:line 31
+   at Reminder.Services.GooglePhotosScheduleAction.ExecuteAsync(Schedule schedule) in C:\repos\Reminder\Services\GooglePhotosScheduleAction.cs:line 23
+   at Reminder.Services.Scheduler.CheckSchedulesAsync() in C:\repos\Reminder\Services\Scheduler.cs:line 49
+   at Reminder.Program.Main(String[] args) in C:\repos\Reminder\Program.cs:line 41
+2026-09-25 20:21:11.436 +00:00 [ERR] An error occurred while checking the schedule. Message: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 46e09a7af769-818e805502fsm3401862a34.4 - gsmtp
+MailKit.Security.AuthenticationException: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 46e09a7af769-818e805502fsm3401862a34.4 - gsmtp
+ ---> MailKit.Net.Smtp.SmtpCommandException: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 46e09a7af769-818e805502fsm3401862a34.4 - gsmtp
+   --- End of inner exception stack trace ---
+   at MailKit.Net.Smtp.SmtpClient.AuthenticateAsync(Encoding encoding, ICredentials credentials, CancellationToken cancellationToken)
+   at Reminder.Services.EmailService.SendAsync(Recipient recipient, String subject, String body) in C:\repos\Reminder\Services\EmailService.cs:line 31
+   at Reminder.Services.GooglePhotosScheduleAction.ExecuteAsync(Schedule schedule) in C:\repos\Reminder\Services\GooglePhotosScheduleAction.cs:line 23
+   at Reminder.Services.Scheduler.CheckSchedulesAsync() in C:\repos\Reminder\Services\Scheduler.cs:line 49
+   at Reminder.Program.Main(String[] args) in C:\repos\Reminder\Program.cs:line 41
+2026-09-25 20:22:01.463 +00:00 [ERR] An error occurred while checking the schedule. Message: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 586e51a60fabf-493da248a47sm1843202fac.17 - gsmtp
+MailKit.Security.AuthenticationException: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 586e51a60fabf-493da248a47sm1843202fac.17 - gsmtp
+ ---> MailKit.Net.Smtp.SmtpCommandException: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 586e51a60fabf-493da248a47sm1843202fac.17 - gsmtp
+   --- End of inner exception stack trace ---
+   at MailKit.Net.Smtp.SmtpClient.AuthenticateAsync(Encoding encoding, ICredentials credentials, CancellationToken cancellationToken)
+   at Reminder.Services.EmailService.SendAsync(Recipient recipient, String subject, String body) in C:\repos\Reminder\Services\EmailService.cs:line 31
+   at Reminder.Services.GooglePhotosScheduleAction.ExecuteAsync(Schedule schedule) in C:\repos\Reminder\Services\GooglePhotosScheduleAction.cs:line 23
+   at Reminder.Services.Scheduler.CheckSchedulesAsync() in C:\repos\Reminder\Services\Scheduler.cs:line 49
+   at Reminder.Program.Main(String[] args) in C:\repos\Reminder\Program.cs:line 41
+2026-09-25 20:23:01.206 +00:00 [ERR] An error occurred while checking the schedule. Message: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 46e09a7af769-818e97ab6a7sm3658380a34.22 - gsmtp
+MailKit.Security.AuthenticationException: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 46e09a7af769-818e97ab6a7sm3658380a34.22 - gsmtp
+ ---> MailKit.Net.Smtp.SmtpCommandException: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 46e09a7af769-818e97ab6a7sm3658380a34.22 - gsmtp
+   --- End of inner exception stack trace ---
+   at MailKit.Net.Smtp.SmtpClient.AuthenticateAsync(Encoding encoding, ICredentials credentials, CancellationToken cancellationToken)
+   at Reminder.Services.EmailService.SendAsync(Recipient recipient, String subject, String body) in C:\repos\Reminder\Services\EmailService.cs:line 31
+   at Reminder.Services.GooglePhotosScheduleAction.ExecuteAsync(Schedule schedule) in C:\repos\Reminder\Services\GooglePhotosScheduleAction.cs:line 23
+   at Reminder.Services.Scheduler.CheckSchedulesAsync() in C:\repos\Reminder\Services\Scheduler.cs:line 49
+   at Reminder.Program.Main(String[] args) in C:\repos\Reminder\Program.cs:line 41
+2026-09-25 20:24:00.932 +00:00 [ERR] An error occurred while checking the schedule. Message: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 46e09a7af769-818e8054f00sm3357283a34.9 - gsmtp
+MailKit.Security.AuthenticationException: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 46e09a7af769-818e8054f00sm3357283a34.9 - gsmtp
+ ---> MailKit.Net.Smtp.SmtpCommandException: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 46e09a7af769-818e8054f00sm3357283a34.9 - gsmtp
+   --- End of inner exception stack trace ---
+   at MailKit.Net.Smtp.SmtpClient.AuthenticateAsync(Encoding encoding, ICredentials credentials, CancellationToken cancellationToken)
+   at Reminder.Services.EmailService.SendAsync(Recipient recipient, String subject, String body) in C:\repos\Reminder\Services\EmailService.cs:line 31
+   at Reminder.Services.GooglePhotosScheduleAction.ExecuteAsync(Schedule schedule) in C:\repos\Reminder\Services\GooglePhotosScheduleAction.cs:line 23
+   at Reminder.Services.Scheduler.CheckSchedulesAsync() in C:\repos\Reminder\Services\Scheduler.cs:line 49
+   at Reminder.Program.Main(String[] args) in C:\repos\Reminder\Program.cs:line 41
+2026-09-25 20:25:01.726 +00:00 [ERR] An error occurred while checking the schedule. Message: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 5614622812f47-4dbf5f1cfd6sm2667038b6e.7 - gsmtp
+MailKit.Security.AuthenticationException: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 5614622812f47-4dbf5f1cfd6sm2667038b6e.7 - gsmtp
+ ---> MailKit.Net.Smtp.SmtpCommandException: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 5614622812f47-4dbf5f1cfd6sm2667038b6e.7 - gsmtp
+   --- End of inner exception stack trace ---
+   at MailKit.Net.Smtp.SmtpClient.AuthenticateAsync(Encoding encoding, ICredentials credentials, CancellationToken cancellationToken)
+   at Reminder.Services.EmailService.SendAsync(Recipient recipient, String subject, String body) in C:\repos\Reminder\Services\EmailService.cs:line 31
+   at Reminder.Services.GooglePhotosScheduleAction.ExecuteAsync(Schedule schedule) in C:\repos\Reminder\Services\GooglePhotosScheduleAction.cs:line 23
+   at Reminder.Services.Scheduler.CheckSchedulesAsync() in C:\repos\Reminder\Services\Scheduler.cs:line 49
+   at Reminder.Program.Main(String[] args) in C:\repos\Reminder\Program.cs:line 41
+2026-09-25 20:26:01.872 +00:00 [ERR] An error occurred while checking the schedule. Message: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 006d021491bc7-6d61f0559a6sm2189639eaf.13 - gsmtp
+MailKit.Security.AuthenticationException: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 006d021491bc7-6d61f0559a6sm2189639eaf.13 - gsmtp
+ ---> MailKit.Net.Smtp.SmtpCommandException: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 006d021491bc7-6d61f0559a6sm2189639eaf.13 - gsmtp
+   --- End of inner exception stack trace ---
+   at MailKit.Net.Smtp.SmtpClient.AuthenticateAsync(Encoding encoding, ICredentials credentials, CancellationToken cancellationToken)
+   at Reminder.Services.EmailService.SendAsync(Recipient recipient, String subject, String body) in C:\repos\Reminder\Services\EmailService.cs:line 31
+   at Reminder.Services.GooglePhotosScheduleAction.ExecuteAsync(Schedule schedule) in C:\repos\Reminder\Services\GooglePhotosScheduleAction.cs:line 23
+   at Reminder.Services.Scheduler.CheckSchedulesAsync() in C:\repos\Reminder\Services\Scheduler.cs:line 49
+   at Reminder.Program.Main(String[] args) in C:\repos\Reminder\Program.cs:line 41
+2026-09-25 20:27:01.544 +00:00 [ERR] An error occurred while checking the schedule. Message: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 006d021491bc7-6d6f7ae0ee6sm720374eaf.12 - gsmtp
+MailKit.Security.AuthenticationException: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 006d021491bc7-6d6f7ae0ee6sm720374eaf.12 - gsmtp
+ ---> MailKit.Net.Smtp.SmtpCommandException: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 006d021491bc7-6d6f7ae0ee6sm720374eaf.12 - gsmtp
+   --- End of inner exception stack trace ---
+   at MailKit.Net.Smtp.SmtpClient.AuthenticateAsync(Encoding encoding, ICredentials credentials, CancellationToken cancellationToken)
+   at Reminder.Services.EmailService.SendAsync(Recipient recipient, String subject, String body) in C:\repos\Reminder\Services\EmailService.cs:line 31
+   at Reminder.Services.GooglePhotosScheduleAction.ExecuteAsync(Schedule schedule) in C:\repos\Reminder\Services\GooglePhotosScheduleAction.cs:line 23
+   at Reminder.Services.Scheduler.CheckSchedulesAsync() in C:\repos\Reminder\Services\Scheduler.cs:line 49
+   at Reminder.Program.Main(String[] args) in C:\repos\Reminder\Program.cs:line 41
+2026-09-25 20:28:01.307 +00:00 [ERR] An error occurred while checking the schedule. Message: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 586e51a60fabf-493367b617fsm2993323fac.18 - gsmtp
+MailKit.Security.AuthenticationException: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 586e51a60fabf-493367b617fsm2993323fac.18 - gsmtp
+ ---> MailKit.Net.Smtp.SmtpCommandException: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 586e51a60fabf-493367b617fsm2993323fac.18 - gsmtp
+   --- End of inner exception stack trace ---
+   at MailKit.Net.Smtp.SmtpClient.AuthenticateAsync(Encoding encoding, ICredentials credentials, CancellationToken cancellationToken)
+   at Reminder.Services.EmailService.SendAsync(Recipient recipient, String subject, String body) in C:\repos\Reminder\Services\EmailService.cs:line 31
+   at Reminder.Services.GooglePhotosScheduleAction.ExecuteAsync(Schedule schedule) in C:\repos\Reminder\Services\GooglePhotosScheduleAction.cs:line 23
+   at Reminder.Services.Scheduler.CheckSchedulesAsync() in C:\repos\Reminder\Services\Scheduler.cs:line 49
+   at Reminder.Program.Main(String[] args) in C:\repos\Reminder\Program.cs:line 41
+2026-09-25 20:29:01.063 +00:00 [ERR] An error occurred while checking the schedule. Message: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 46e09a7af769-818e8befd44sm3615262a34.14 - gsmtp
+MailKit.Security.AuthenticationException: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 46e09a7af769-818e8befd44sm3615262a34.14 - gsmtp
+ ---> MailKit.Net.Smtp.SmtpCommandException: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 46e09a7af769-818e8befd44sm3615262a34.14 - gsmtp
+   --- End of inner exception stack trace ---
+   at MailKit.Net.Smtp.SmtpClient.AuthenticateAsync(Encoding encoding, ICredentials credentials, CancellationToken cancellationToken)
+   at Reminder.Services.EmailService.SendAsync(Recipient recipient, String subject, String body) in C:\repos\Reminder\Services\EmailService.cs:line 31
+   at Reminder.Services.GooglePhotosScheduleAction.ExecuteAsync(Schedule schedule) in C:\repos\Reminder\Services\GooglePhotosScheduleAction.cs:line 23
+   at Reminder.Services.Scheduler.CheckSchedulesAsync() in C:\repos\Reminder\Services\Scheduler.cs:line 49
+   at Reminder.Program.Main(String[] args) in C:\repos\Reminder\Program.cs:line 41
+2026-09-25 20:30:00.787 +00:00 [ERR] An error occurred while checking the schedule. Message: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 586e51a60fabf-49335c784a1sm2764958fac.10 - gsmtp
+MailKit.Security.AuthenticationException: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 586e51a60fabf-49335c784a1sm2764958fac.10 - gsmtp
+ ---> MailKit.Net.Smtp.SmtpCommandException: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 586e51a60fabf-49335c784a1sm2764958fac.10 - gsmtp
+   --- End of inner exception stack trace ---
+   at MailKit.Net.Smtp.SmtpClient.AuthenticateAsync(Encoding encoding, ICredentials credentials, CancellationToken cancellationToken)
+   at Reminder.Services.EmailService.SendAsync(Recipient recipient, String subject, String body) in C:\repos\Reminder\Services\EmailService.cs:line 31
+   at Reminder.Services.GooglePhotosScheduleAction.ExecuteAsync(Schedule schedule) in C:\repos\Reminder\Services\GooglePhotosScheduleAction.cs:line 23
+   at Reminder.Services.Scheduler.CheckSchedulesAsync() in C:\repos\Reminder\Services\Scheduler.cs:line 49
+   at Reminder.Program.Main(String[] args) in C:\repos\Reminder\Program.cs:line 41
+2026-09-25 20:41:13.914 +00:00 [ERR] An error occurred while checking the schedule. Message: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 006d021491bc7-6d61f0559a6sm2217706eaf.13 - gsmtp
+MailKit.Security.AuthenticationException: 535: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 006d021491bc7-6d61f0559a6sm2217706eaf.13 - gsmtp
+ ---> MailKit.Net.Smtp.SmtpCommandException: 5.7.8 Username and Password not accepted. For more information, go to
+5.7.8  https://support.google.com/mail/?p=BadCredentials 006d021491bc7-6d61f0559a6sm2217706eaf.13 - gsmtp
+   --- End of inner exception stack trace ---
+   at MailKit.Net.Smtp.SmtpClient.AuthenticateAsync(Encoding encoding, ICredentials credentials, CancellationToken cancellationToken)
+   at Reminder.Services.EmailService.SendAsync(Recipient recipient, String subject, String body) in C:\repos\Reminder\Services\EmailService.cs:line 31
+   at Reminder.Services.GooglePhotosScheduleAction.ExecuteAsync(Schedule schedule) in C:\repos\Reminder\Services\GooglePhotosScheduleAction.cs:line 23
+   at Reminder.Services.Scheduler.CheckSchedulesAsync() in C:\repos\Reminder\Services\Scheduler.cs:line 49
+   at Reminder.Program.Main(String[] args) in C:\repos\Reminder\Program.cs:line 41
+2026-09-25 20:46:24.715 +00:00 [INF] Executed schedule 'Google Photos Reminder' at "2026-09-25T20:45:00.1579329Z" with action GooglePhotosScheduleAction.
+2026-09-25 20:57:07.864 +00:00 [INF] Executed schedule 'Google Photos Reminder' at "2026-09-25T20:57:00.5994295Z" with action GooglePhotosScheduleAction.
+2026-09-25 21:05:09.004 +00:00 [INF] Executed schedule 'Google Photos Reminder' at "2026-09-25T21:05:00.8435555Z" with action GooglePhotosScheduleAction.
+2026-09-25 21:12:25.074 +00:00 [INF] Executed schedule 'Google Photos Reminder' at "2026-09-25T21:12:00.9102748Z" with action GooglePhotosScheduleAction.
+2026-09-25 21:14:54.490 +00:00 [INF] Executed schedule 'Google Photos Reminder' at "2026-09-25T21:13:00.1417107Z" with action GooglePhotosScheduleAction.
+2026-09-25 21:22:01.676 +00:00 [INF] Executed schedule 'Google Photos Reminder' at "2026-09-25T21:22:00.2424976Z" with action GooglePhotosScheduleAction.
+2026-09-25 21:24:02.412 +00:00 [INF] Executed schedule 'Google Photos Reminder' at "2026-09-25T21:24:00.8583725Z" with action GooglePhotosScheduleAction.
+2026-09-25 21:25:01.817 +00:00 [INF] Executed schedule 'Google Photos Reminder' at "2026-09-25T21:25:00.4934982Z" with action GooglePhotosScheduleAction.
+2026-09-25 21:26:02.578 +00:00 [INF] Executed schedule 'Google Photos Reminder' at "2026-09-25T21:26:00.8409556Z" with action GooglePhotosScheduleAction.
+2026-09-25 21:27:02.087 +00:00 [INF] Executed schedule 'Google Photos Reminder' at "2026-09-25T21:27:00.4035106Z" with action GooglePhotosScheduleAction.
+2026-09-25 21:28:01.744 +00:00 [INF] Executed schedule 'Google Photos Reminder' at "2026-09-25T21:28:00.1707432Z" with action GooglePhotosScheduleAction.
+2026-09-25 21:29:02.185 +00:00 [INF] Executed schedule 'Google Photos Reminder' at "2026-09-25T21:29:00.7925441Z" with action GooglePhotosScheduleAction.
+2026-09-25 21:31:02.634 +00:00 [INF] Executed schedule 'Google Photos Reminder' at "2026-09-25T21:31:00.7999107Z" with action GooglePhotosScheduleAction.
+2026-09-25 21:32:01.901 +00:00 [INF] Executed schedule 'Google Photos Reminder' at "2026-09-25T21:32:00.7202054Z" with action GooglePhotosScheduleAction.
+2026-09-25 21:33:02.002 +00:00 [INF] Executed schedule 'Google Photos Reminder' at "2026-09-25T21:33:00.9608035Z" with action GooglePhotosScheduleAction.
+2026-09-25 21:34:01.663 +00:00 [INF] Executed schedule 'Google Photos Reminder' at "2026-09-25T21:34:00.1468206Z" with action GooglePhotosScheduleAction.
+2026-09-25 21:36:01.478 +00:00 [INF] Executed schedule 'Google Photos Reminder' at "2026-09-25T21:36:00.1806110Z" with action GooglePhotosScheduleAction.

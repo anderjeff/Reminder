@@ -1,0 +1,13 @@
+2026-09-23 14:02:19.471 +00:00 [ERR] An error occurred while checking the schedule. Message: You need to call SQLitePCL.raw.SetProvider().  If you are using a bundle package, this is done by calling SQLitePCL.Batteries.Init().
+System.Exception: You need to call SQLitePCL.raw.SetProvider().  If you are using a bundle package, this is done by calling SQLitePCL.Batteries.Init().
+   at SQLitePCL.raw.get_Provider()
+   at SQLitePCL.raw.sqlite3_open_v2(utf8z filename, sqlite3& db, Int32 flags, utf8z vfs)
+   at SQLitePCL.raw.sqlite3_open_v2(String filename, sqlite3& db, Int32 flags, String vfs)
+   at Microsoft.Data.Sqlite.SqliteConnectionInternal..ctor(SqliteConnectionStringBuilder connectionOptions, SqliteConnectionPool pool)
+   at Microsoft.Data.Sqlite.SqliteConnectionPool.GetConnection()
+   at Microsoft.Data.Sqlite.SqliteConnectionFactory.GetConnection(SqliteConnection outerConnection)
+   at Microsoft.Data.Sqlite.SqliteConnection.Open()
+   at Reminder.Data.GooglePhotosReminderDataAccess.GetLastSearchStartDate(String sentTo) in C:\repos\Reminder\Data\GooglePhotosReminderDataAccess.cs:line 32
+   at Reminder.Services.GooglePhotosScheduleAction.ExecuteAsync(Schedule schedule) in C:\repos\Reminder\Services\GooglePhotosScheduleAction.cs:line 20
+   at Reminder.Services.Scheduler.CheckSchedulesAsync() in C:\repos\Reminder\Services\Scheduler.cs:line 49
+   at Reminder.Program.Main(String[] args) in C:\repos\Reminder\Program.cs:line 41
