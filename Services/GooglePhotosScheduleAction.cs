@@ -9,7 +9,7 @@ namespace Reminder.Services
     {
         private readonly IGooglePhotosReminderDataAccess _dataAccess;
         private readonly ILogger _logger;
-        
+
         public GooglePhotosScheduleAction(INotificationService emailService, IGooglePhotosReminderDataAccess dataAccess, ILogger<GooglePhotosScheduleAction> logger) : base(emailService)
         {
             _dataAccess = dataAccess;
@@ -56,13 +56,23 @@ namespace Reminder.Services
                                         padding:20px;
                                         margin-bottom:24px;
                                         text-align:center;'>
-                                <div style='font-size:16px;
-                                            font-family:Consolas,Courier New,monospace;
-                                            font-weight:semi-bold;
-                                            color:#202124;
-                                            user-select:all;'>
+                                <textarea readonly 
+                                          rows=""1""
+                                          style='width: 100%;
+                                                 max-width: 100%;
+                                                 background: transparent;
+                                                 border: none;
+                                                 outline: none;
+                                                 resize: none;
+                                                 text-align: center;
+                                                 font-size:14px;
+                                                 font-family:Consolas,Courier New,monospace;
+                                                 font-weight:600;
+                                                 color:#202124;
+                                                 user-select:all;
+                                                 -webkit-user-select:all;'>
                                     {dateRange}
-                                </div>
+                                </textarea>
                             </div>
 
                             <h3>Step 2</h3>
