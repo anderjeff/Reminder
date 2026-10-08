@@ -50,7 +50,7 @@ namespace Reminder.Services
 
                             <h3 style='margin-bottom:8px;'>Step 1: Copy this date range</h3>
 
-                            <div style='background:#ffffff;
+                            <div style='background:#f8f9fa;
                                         border:1px solid #1a73e8;
                                         border-radius:6px;
                                         padding:10px;
@@ -63,10 +63,10 @@ namespace Reminder.Services
                                     value='{dateRange}'
                                     style='width:100%;
                                            box-sizing:border-box;
-                                           padding:20px;
+                                           padding:10px;
                                            border:none;
-                                           background:#f1f3f4;
-                                           border-radius:4px;
+                                           outline:none;
+                                           background:transparent;
                                            text-align:center;
                                            font-size:22px;
                                            font-family:Consolas,'Courier New',monospace;
