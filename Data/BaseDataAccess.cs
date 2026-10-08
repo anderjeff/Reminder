@@ -9,7 +9,7 @@ namespace Reminder.Data
     {
         public BaseDataAccess()
         {
-            //SeedDatabase();
+            SeedDatabase();
         }
 
         private void SeedDatabase()
