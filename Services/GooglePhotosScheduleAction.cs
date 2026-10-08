@@ -56,23 +56,23 @@ namespace Reminder.Services
                                         padding:20px;
                                         margin-bottom:24px;
                                         text-align:center;'>
-                                <textarea readonly 
-                                          rows=""1""
-                                          style='width: 100%;
-                                                 max-width: 100%;
-                                                 background: transparent;
-                                                 border: none;
-                                                 outline: none;
-                                                 resize: none;
-                                                 text-align: center;
-                                                 font-size:14px;
-                                                 font-family:Consolas,Courier New,monospace;
-                                                 font-weight:600;
-                                                 color:#202124;
-                                                 user-select:all;
-                                                 -webkit-user-select:all;'>
-                                    {dateRange}
-                                </textarea>
+
+                                <input
+                                    type='text'
+                                    readonly
+                                    value='{dateRange}'
+                                    style='width:100%;
+                                           box-sizing:border-box;
+                                           padding:12px;
+                                           border:1px solid #d2e3fc;
+                                           border-radius:4px;
+                                           background:#ffffff;
+                                           text-align:center;
+                                           font-size:22px;
+                                           font-family:Consolas,'Courier New',monospace;
+                                           font-weight:700;
+                                           color:#174ea6;' />
+
                             </div>
 
                             <h3>Step 2</h3>
