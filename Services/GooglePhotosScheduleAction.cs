@@ -63,10 +63,9 @@ namespace Reminder.Services
                                     value='{dateRange}'
                                     style='width:100%;
                                            box-sizing:border-box;
-                                           padding:12px;
-                                           border:1px solid #d2e3fc;
-                                           border-radius:4px;
-                                           background:#ffffff;
+                                           padding:20px;
+                                           border:0px;
+                                           background:#f8f9fa;
                                            text-align:center;
                                            font-size:22px;
                                            font-family:Consolas,'Courier New',monospace;
