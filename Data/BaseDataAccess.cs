@@ -46,7 +46,7 @@ namespace Reminder.Data
 
         public SqliteConnection GetConnection()
         {
-            var connectionString = "Data Source=reminder.db";
+            var connectionString = "Data Source=_data/reminder.db";
             return new SqliteConnection(connectionString);
         }
     }
